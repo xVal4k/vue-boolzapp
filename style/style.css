@@ -151,7 +151,6 @@ body {
 }
 
 .chat {
-    flex-basis: 1;
     flex-shrink: 0;
     height: var(--chat-height);
     padding: .5rem;
@@ -231,6 +230,39 @@ body {
     margin-top: var(--nav-height);
     background-image: url(../img/mine_dark.jpg);
     background-size: cover;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    overflow: auto;
+}
+
+
+.msg_sent {
+    background: #0d7963;
+    color: black;
+    align-self: flex-end;
+}
+
+.msg_received {
+    background: var(--light-gray);
+    color: black;
+    align-self: flex-start;
+}
+
+.msg_box {
+    min-width: 100px;
+    max-width: 60%;
+    padding: 1rem;
+    border-radius: 10px;
+    position: relative;
+}
+
+.msg_received_time,
+.msg_sent_time {
+    position: absolute;
+    font-size: 10px;
+    right: 3%
 }
 
 /* FOOTER CHAT */
