@@ -1,5 +1,6 @@
 :root {
     --nav-height: 3.5rem;
+    --chat-height: 4.5rem
 }
 
 /* Common style */
@@ -52,7 +53,6 @@ body {
 	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
 	background-size: 400% 400%;
 	animation: gradient 10s ease infinite;
-	height: 100vh;
 }
 
 @keyframes gradient {
@@ -96,7 +96,7 @@ body {
 /* NAV_NOTIFICATIONS */
 
 .sidebar .nav_notifications {
-    height: var(--nav-height);
+    height: 4rem;
     padding: .5rem;
     color: #8697a0;
     display: flex;
@@ -136,4 +136,46 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif, FontAwesome;
 }
 
+
+/* CHAtS */
+
+.sidebar .chats {
+    height: calc(100% - 4rem - var(--nav-height) * 2);
+    overflow-y: scroll;
+}
+
+.chat {
+    flex-basis: 1;
+    flex-shrink: 0;
+    height: var(--chat-height);
+    padding: .5rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    border-bottom: solid 1px #313e45;
+}
+
+.chat img {
+    width: 50px;
+    margin-right: 1rem;
+}
+
+
+
+.chat .text {
+    width: 100%;
+    
+}
+
+.chat .text .time,
+.chat .text .last_msg_sent {
+    font-size: 14px;
+    color: #8697a0;
+}
+
+.name {
+    font-size: 18px;
+    padding: 5px 0;
+    color: white;
+}
 
