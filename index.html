@@ -61,9 +61,9 @@
                         <div class="text">
                             <div class="flex_row">
                                 <span class="name">{{ element.name }}</span>
-                                <span class="time">{{ element.chat[element.chat.length-1].messageTime }}</span>
+                                <span v-if="element.chat.length > 0" class="time">{{ element.chat[element.chat.length-1].messageTime }}</span>
                             </div>
-                            <p class="last_msg_sent">{{ element.chat[element.chat.length-1].message }}</p>
+                            <p v-if="element.chat.length > 0" class="last_msg_sent">{{ element.chat[element.chat.length-1].message }}</p>
                         </div>
                     </div>
 
@@ -110,7 +110,7 @@
                             class="fa-solid fa-chevron-up"></i>
                         <i @click="toggleActive(index)" :class="msg.dropActive == true ? 'drop_active' : ''"
                             class="fa-solid fa-chevron-down"></i>
-                        <p :class="msg.dropActive == true ? 'drop_active' : ''" class="dropdownDelete">Elimina</p>
+                        <p @click="deleteMessage(index)" :class="msg.dropActive == true ? 'drop_active' : ''" class="dropdownDelete">Elimina</p>
                     </div>
 
                 </div>
