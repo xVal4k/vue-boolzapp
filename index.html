@@ -81,7 +81,7 @@
                         <img :src="'img/avatar' + element.img + '.jpg'" :alt="'avatar' + element.img">
                         <div>
                             <p class="name">{{ element.name }}</p>
-                            <p class="time">Ultimo accesso oggi alle {{ element.chat[element.chat.length-1].messageTime }}</p>    
+                            <p class="time">{{ element.lastAccess }}</p>    
                         </div>
                     </div>
 
