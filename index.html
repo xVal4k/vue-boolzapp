@@ -49,12 +49,14 @@
                 </div>
 
                 <div class="nav_search">
-                    <input type="search" v-model="contactSearch" @keyup="contactFilter" placeholder=" Cerca o inizia una nuova chat">
+                    <input type="search" v-model="contactSearch" @keyup="contactFilter"
+                        placeholder=" Cerca o inizia una nuova chat">
                 </div>
 
                 <div class="chats">
 
-                    <div v-for="(element, index) in contacts" v-if="element.visible" class="chat" @click="chatSelected(index)" :class="chatOpened === index ? 'selected_contact' : ''">                    
+                    <div v-for="(element, index) in contacts" v-if="element.visible" class="chat"
+                        @click="chatSelected(index)" :class="chatOpened === index ? 'selected_contact' : ''">
                         <img :src="'img/avatar' + element.img + '.jpg'" alt="'avatar' + element.img">
                         <div class="text">
                             <div class="flex_row">
@@ -63,9 +65,9 @@
                             </div>
                             <p class="last_msg_sent">{{ element.chat[element.chat.length-1].message }}</p>
                         </div>
-                    </div>                   
+                    </div>
 
-                </div>                
+                </div>
 
             </div>
 
@@ -74,14 +76,15 @@
 
 
                 <!-- Chat header -->
-                
-                <div v-for="(element, index) in contacts" class="flex_row nav_chat" :class="chatOpened === index ? 'chat_opened' : ''">
+
+                <div v-for="(element, index) in contacts" class="flex_row nav_chat"
+                    :class="chatOpened === index ? 'chat_opened' : ''">
 
                     <div class="user">
                         <img :src="'img/avatar' + element.img + '.jpg'" :alt="'avatar' + element.img">
                         <div>
                             <p class="name">{{ element.name }}</p>
-                            <p class="time">{{ element.lastAccess }}</p>    
+                            <p class="time">{{ element.lastAccess }}</p>
                         </div>
                     </div>
 
@@ -96,21 +99,29 @@
 
                 <!-- Chat body -->
 
-                <div v-for="(element, index) in contacts" class="chat_msg_body" :class="chatOpened === index ? 'active_chat' : ''">
+                <div v-for="(element, index) in contacts" class="chat_msg_body"
+                    :class="chatOpened === index ? 'active_chat' : ''">
 
-                    <div v-for="msg in element.chat" class="msg_box" :class="msg.type == 'sent' ? 'msg_sent' : 'msg_received'">
+                    <div v-for="(msg, index) in element.chat" class="msg_box"
+                        :class="msg.type == 'sent' ? 'msg_sent' : 'msg_received'">
                         <p>{{ msg.message }}</p>
                         <p class="msg_time">{{ msg.messageTime }}</p>
+                        <i @click="toggleActive(index)" :class="msg.dropActive == true ? 'drop_inactive' : ''"
+                            class="fa-solid fa-chevron-up"></i>
+                        <i @click="toggleActive(index)" :class="msg.dropActive == true ? 'drop_active' : ''"
+                            class="fa-solid fa-chevron-down"></i>
+                        <p :class="msg.dropActive == true ? 'drop_active' : ''" class="dropdownDelete">Elimina</p>
                     </div>
-            
-                    
+
                 </div>
 
                 <!-- Chat footer -->
 
-                <div v-for="(element, index) in contacts" class="footer_chat" :class="chatOpened === index ? 'active_chat' : ''">
+                <div v-for="(element, index) in contacts" class="footer_chat"
+                    :class="chatOpened === index ? 'active_chat' : ''">
                     <button><i class="fa-regular fa-face-smile"></i></button>
-                    <input type="text" v-model="newMessage" @keyup.enter="sendMessage" placeholder="Scrivi un messaggio">
+                    <input type="text" v-model="newMessage" @keyup.enter="sendMessage"
+                        placeholder="Scrivi un messaggio">
                     <button><i class="fa-solid fa-microphone"></i></button>
                 </div>
             </div>
