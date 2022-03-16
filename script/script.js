@@ -4,6 +4,7 @@ const root = new Vue({
         contacts: [        
         {
             name: 'Michele',
+            lastAccess: 'Ultimo accesso ieri alle 16.30',
             img: '_1',
             visible: true,
             chat: [
@@ -26,6 +27,7 @@ const root = new Vue({
         },
         {
             name: 'Marzio',
+            lastAccess: 'Ultimo accesso ieri alle 13.50',
             img: '_2',
             visible: true,
             chat: [
@@ -49,6 +51,7 @@ const root = new Vue({
         },
         {
             name: 'Fabio',
+            lastAccess: 'Ultimo accesso ieri alle 18.35',
             img: '_3',
             visible: true,
             chat: [
@@ -84,25 +87,41 @@ const root = new Vue({
                 const currentDate = new Date();
                 const currentTime = currentDate.getHours() + '.' + currentDate.getMinutes();
 
+                const contact = this.contacts[this.chatOpened];
+
                 const message = {
                     messageTime: currentTime,
                     message: this.newMessage,
                     type: "sent",
                 };
 
-                this.contacts[this.chatOpened].chat.push(message);
+                contact.chat.push(message);
                 this.newMessage = '';  
                 
                 setTimeout( () => {
+                    contact.lastAccess = 'Online';
+                },2500)
+
+                setTimeout( () => {
+                    contact.lastAccess = 'Sta scrivendo...';
+                },5000)
+
+                setTimeout( () => {
+                    contact.lastAccess = 'Online';
+
                     let contactMessage = {
                         messageTime: currentTime,
                         message: this.contactAnswer,
                         type: 'received',
                     }
-                    this.contacts[this.chatOpened].chat.push(contactMessage);
+                    contact.chat.push(contactMessage);
                     this.newMessage = '';  
     
-                }, 1500)
+                }, 7500)
+
+                setTimeout( () => {
+                    contact.lastAccess = `Oggi alle ${currentTime}`;
+                }, 10000)
             }
         },        
         contactFilter() {
