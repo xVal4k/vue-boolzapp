@@ -79,6 +79,32 @@ const root = new Vue({
         chatSelected(index) {
             this.chatOpened = index;
         },
+        sendMessage() {
+            if (this.newMessage !== '') {
+                const currentDate = new Date();
+                const currentTime = currentDate.getHours() + '.' + currentDate.getMinutes();
+
+                const message = {
+                    messageTime: currentTime,
+                    message: this.newMessage,
+                    type: "sent",
+                };
+
+                this.contacts[this.chatOpened].chat.push(message);
+                this.newMessage = '';  
+                
+                setTimeout( () => {
+                    let contactMessage = {
+                        messageTime: currentTime,
+                        message: this.contactAnswer,
+                        type: 'received',
+                    }
+                    this.contacts[this.chatOpened].chat.push(contactMessage);
+                    this.newMessage = '';  
+    
+                }, 1500)
+            }
+        },        
         contactFilter() {
             this.contacts.forEach((contact) => {
                 if (contact.name.toLowerCase().includes(this.contactSearch)) {
