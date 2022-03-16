@@ -11,16 +11,19 @@ const root = new Vue({
                 {   
                     messageTime: '15.30',
                     message: 'Hai portato a spasso il cane?',
+                    dropActive: false,
                     type: 'sent'
                 },
                 {   
                     messageTime: '15.50',
                     message: 'Ricorda di stendere i panni',
+                    dropActive: false,
                     type: 'sent'
                 },
                 {   
                     messageTime: '16.30',
                     message: 'Tutto fatto!',
+                    dropActive: false,
                     type: 'received'
                 },
             ]
@@ -34,16 +37,19 @@ const root = new Vue({
                 {   
                     messageTime: '12.34',
                     message: 'Come va?',
+                    dropActive: false,
                     type: 'sent'
                 },
                 {   
                     messageTime: '13.50',
                     message: 'Bene, tu?',
+                    dropActive: false,
                     type: 'received'
                 },
                 {   
                     messageTime: '14.30',
                     message: 'Bene dai',
+                    dropActive: false,
                     type: 'sent'
                 },
             ]
@@ -58,16 +64,19 @@ const root = new Vue({
                 {   
                     messageTime: '18.34',
                     message: '1,2,3 ...',
+                    dropActive: false,
                     type: 'sent'
                 },
                 {   
                     messageTime: '18.35',
                     message: 'Stella?',
+                    dropActive: false,
                     type: 'received'
                 },
                 {   
                     messageTime: '18.37',
                     message: 'No! Stai la!',
+                    dropActive: false,
                     type: 'sent'
                 },
             ]
@@ -131,7 +140,11 @@ const root = new Vue({
                 } else {
                     contact.visible = false;
                 }
-            });            
+            });
+        },
+        toggleActive(index) {
+            let msgIndex = this.contacts[this.chatOpened].chat[index];
+            msgIndex.dropActive = !msgIndex.dropActive;
         },
     },
 
