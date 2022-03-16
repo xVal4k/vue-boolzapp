@@ -146,6 +146,10 @@ const root = new Vue({
             let msgIndex = this.contacts[this.chatOpened].chat[index];
             msgIndex.dropActive = !msgIndex.dropActive;
         },
+        deleteMessage(index) {
+            let msgIndex = this.contacts[this.chatOpened].chat;
+            msgIndex.splice(index, 1);
+        }
     },
 
 })
