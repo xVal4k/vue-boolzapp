@@ -28,7 +28,7 @@ button {
     background: transparent;
     color: white;
     border: solid 1px transparent;
-    cursor: pointer; 
+    cursor: pointer;
 }
 
 img {
@@ -45,7 +45,7 @@ img {
     margin-right: 2.5px;
 }
 
-.flex_row {    
+.flex_row {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -168,7 +168,7 @@ body {
 
 .chat .text {
     width: 100%;
-    
+
 }
 
 .chat .text .time,
@@ -201,7 +201,7 @@ body {
     color: var(--light-gray);
     position: absolute;
     left: 0;
-    right: 0;    
+    right: 0;
 }
 
 .nav_chat {
@@ -258,13 +258,44 @@ body {
     padding: 1rem;
     border-radius: 10px;
     position: relative;
+    word-wrap: break-word;
 }
 
 .msg_time {
     position: absolute;
     font-size: 10px;
-    right: 3%
+    right: 3%;
 }
+
+
+
+.fa-chevron-down,
+.fa-chevron-up {
+    color: black;
+    position: absolute;
+    top: 3%;
+    right: 1.5%;
+    font-size: 14px;
+    display: none;
+    cursor: pointer;
+}
+
+.dropdownDelete {
+    font-size: 14px;
+    background: rgb(85, 84, 84);
+    padding: .5rem 1rem;
+    border-radius: 10px;
+    position: absolute;
+    top: 35%;
+    right: 1.5%;
+    display: none;
+    cursor: pointer;
+}
+
+.fa-chevron-up {
+    display: block;
+} 
+
 
 /* FOOTER CHAT */
 
@@ -288,11 +319,19 @@ body {
 /* CLASSES FOR VUE */
 
 .selected_contact {
-    background: #2a3a42;    
+    background: #2a3a42;
 }
 
 .chat_opened,
 .active_chat {
     display: flex;
+}
+
+.drop_active {
+    display: block;
+}
+
+.drop_inactive {
+    display: none;
 }
 
