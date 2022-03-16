@@ -108,7 +108,7 @@
 
                 <!-- Chat footer -->
 
-                <div class="footer_chat">
+                <div v-for="(element, index) in contacts" class="footer_chat" :class="chatOpened === index ? 'active_chat' : ''">
                     <button><i class="fa-regular fa-face-smile"></i></button>
                     <input type="text" v-model="newMessage" @keyup.enter="sendMessage" placeholder="Scrivi un messaggio">
                     <button><i class="fa-solid fa-microphone"></i></button>
