@@ -63,7 +63,7 @@
                                 <span class="name">{{ element.name }}</span>
                                 <span v-if="element.chat.length > 0" class="time">{{ element.chat[element.chat.length-1].messageTime }}</span>
                             </div>
-                            <p v-if="element.chat.length > 0" class="last_msg_sent">{{ element.chat[element.chat.length-1].message }}</p>
+                            <p v-if="element.chat.length > 0" class="last_msg_sent">{{ element.chat[element.chat.length-1].message.substr(0, 20) }}</p>
                         </div>
                     </div>
 
