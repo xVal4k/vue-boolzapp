@@ -101,6 +101,7 @@ const root = new Vue({
                 const message = {
                     messageTime: currentTime,
                     message: this.newMessage,
+                    dropActive: false,
                     type: "sent",
                 };
 
@@ -121,6 +122,7 @@ const root = new Vue({
                     let contactMessage = {
                         messageTime: currentTime,
                         message: this.contactAnswer,
+                        dropActive: false,
                         type: 'received',
                     }
                     contact.chat.push(contactMessage);
