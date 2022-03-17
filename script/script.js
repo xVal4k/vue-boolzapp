@@ -92,7 +92,7 @@ const root = new Vue({
             this.chatOpened = index;
         },
         sendMessage() {
-            if (this.newMessage !== '') {
+            if (this.newMessage.trim() !== '') {
                 const currentDate = new Date();
                 const currentTime = currentDate.getHours() + '.' + currentDate.getMinutes();
 
@@ -149,7 +149,7 @@ const root = new Vue({
         deleteMessage(index) {
             let msgIndex = this.contacts[this.chatOpened].chat;
             msgIndex.splice(index, 1);
-        }
+        },        
     },
 
 })
